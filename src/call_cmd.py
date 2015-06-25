@@ -16,10 +16,10 @@ def re_if_not(res, err_msg):
     if not res:
         raise_exit(err_msg=err_msg)
 
-def call_cmd(cmd, cwd=None, err_msg=None):
+def call_cmd(cmd, cwd=None, err_msg=None, env=None):
     # под win хотим обычный вызов CreateProcess(), без всяких cmd.exe /c ""
     shell = sys.platform != 'win32'
-    retcode = subprocess.call(cmd, cwd=cwd, shell=shell)
+    retcode = subprocess.call(cmd, cwd=cwd, shell=shell, env=env)
     if retcode:
         raise_exit(retcode, err_msg if err_msg else 'command failed: %s' % cmd)
 
