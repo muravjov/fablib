@@ -24,4 +24,8 @@ setup(
 
     package_dir = {'': 'src'},
     py_modules = py_modules,
+
+    entry_points = {
+        'console_scripts': ['suid-gdb = suid_gdb:main'],
+    },
 )
