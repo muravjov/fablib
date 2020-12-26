@@ -70,6 +70,10 @@ def for_write(fpath):
         минимизировать варианты подобных вызовов """
     return open(fpath, "wb")
 
+def for_text_write(fpath):
+    """ For Python3 we often should open as a text file (like for json, csv.reader, etc) """
+    return open(fpath, "w")
+
 def fix_rights(fpath):
     # :TRICKY: при выдаче контента через Apache (1gb.ru) последний работает
     # под отличным от скрипта пользователем, потому надо ему дать права на
